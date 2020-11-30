@@ -1,0 +1,166 @@
+﻿@{
+    ViewData["Title"] = "农历日历";
+}
+@section Header{
+    <link rel="stylesheet" href="~/css/home.min.css" />
+
+}
+@section Scripts{
+    <script>
+        function fetchCalendar(year, month) {
+            $(".lunar-caption").text(year + "年" + month + "月");
+            var yearMonth = year + "-" + month + "-1";
+
+            ajaxGet("/home/GetMonthJson?date=" + encodeURIComponent(yearMonth), function (resp) {
+                console.debug(resp);
+                buildCalendar(resp);
+            });
+        }
+        function buildCalendar(resp) {
+            var lunarBody = $("#lunar .body");
+            var prependHtml = "";
+            var templateNode = $("#cell-template").clone(false);
+            templateNode.removeClass("hide");
+            lunarBody.children().remove();
+
+            for (var i in resp.prependDays) {
+                var cell = templateNode.clone(false);
+                buildCell(cell, resp.prependDays[i])
+                cell.addClass("prepend").removeAttr("id");
+                lunarBody.append(cell);
+            }
+            for (var i in resp.mainDays) {
+                var cell = templateNode.clone(false);
+                buildCell(cell, resp.mainDays[i])
+                cell.addClass("main-cell").removeAttr("id");
+                lunarBody.append(cell);
+            }
+
+            for (var i in resp.appendDays) {
+                var cell = templateNode.clone(false);
+                buildCell(cell, resp.appendDays[i])
+                cell.addClass("append").removeAttr("id");
+                lunarBody.append(cell);
+            }
+        }
+
+        function buildCell(dom, calendarInfo) {
+            var solarDayDom = $(".solar-day", dom);
+            solarDayDom.html(calendarInfo.solarDay);
+
+            var lunarDayDom = $(".lunar-day", dom);
+            lunarDayDom.html(calendarInfo.lunarDay);
+            lunarDayDom.attr("title", "农历" + calendarInfo.lunarMonth + "月" + calendarInfo.lunarDay);
+
+
+            var holidayInfoDom = $(".holiday-info", dom);
+            holidayInfoDom.html(calendarInfo.holiday);
+
+            var jieqiDom = $(".jieqi-info", dom);
+            jieqiDom.html(calendarInfo.solarTerm);
+
+        }
+
+
+        function buildSelector() {
+            var now = new Date();
+            var year = now.getFullYear() - 100;
+            var html = "";
+            for (var i = year; i <= now.getFullYear() + 100; i++) {
+                if (i == now.getFullYear()) {
+                    html += "<option value=\"" + i + "\" selected>" + i + "年</option>";
+                }
+                else {
+                    html += "<option value=\"" + i + "\">" + i + "年</option>";
+
+                }
+            }
+            $("#year-selector").html(html);
+
+
+            var html = "";
+            for (var i = 1; i <= 12; i++) {
+                if (i == now.getMonth() + 1) {
+                    html += "<option value=\"" + i + "\" selected>" + i + "月</option>";
+                }
+                else {
+                    html += "<option value=\"" + i + "\">" + i + "月</option>";
+
+                }
+            }
+            $("#month-selector").html(html);
+        }
+
+        function init() {
+            $("body").on("change", "#year-selector, #month-selector", function (e) {
+                var year = $("#year-selector").val();
+                var month = $("#month-selector").val();
+
+                fetchCalendar(year, month);
+
+            });
+
+            buildSelector();
+            var now = new Date();
+            fetchCalendar(now.getFullYear(), now.getMonth() + 1);
+        }
+
+
+        $(function () {
+            init();
+
+        });
+
+
+    </script>
+}
+<div class="container">
+    <div class="text-center">
+        <h1 class="display-4">Lunar Calendar</h1>
+
+
+    </div>
+
+    <div class="year-month-selector">
+
+        <div class="year-selector-wrapper">
+            <select id="year-selector" size="30">
+            </select>
+
+        </div>
+        <div class="month-selector-wrapper">
+            <select id="month-selector" size="12">
+            </select>
+
+        </div>
+
+    </div>
+
+    <div class="lunar" id="lunar">
+        <h5 class="lunar-caption"></h5>
+        <div class="header cal-row">
+            <div class="cell">日</div>
+            <div class="cell">一</div>
+            <div class="cell">二</div>
+            <div class="cell">三</div>
+            <div class="cell">四</div>
+            <div class="cell">五</div>
+            <div class="cell">六</div>
+        </div>
+        <div class="cal-row body">
+
+
+        </div>
+    </div>
+    <div id="cell-template" class="hide cell">
+        <div class="cell-day">
+            <div class="solar-day"></div>
+            <div class="lunar-day"></div>
+        </div>
+        <div class="cell-info">
+            <div class="holiday-info"></div>
+            <div class="jieqi-info"></div>
+        </div>
+
+    </div>
+</div>

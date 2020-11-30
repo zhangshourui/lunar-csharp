@@ -1,0 +1,93 @@
+﻿@page "/"
+@using LunarWeb.Components
+@inject IJSRuntime JS;
+
+<h1>我的农历</h1>
+<div class="index-lunar">
+
+    @*<SurveyPrompt Title="How is Blazor working for you?" />*@
+
+    <div class="year-month-selector">
+
+        <div class="year-selector-wrapper hr-scroller">
+            <div id="year-selector" class="hr-scroller-inner">
+                @foreach (var year in Years)
+                {
+                    var y = year;
+                    <div tabindex="-1" data-yearvalue="@year" @onclick="@((MouseEventArgs	 __e) => OnDateChange(__e, y, null))" class="@(year==Year?"active":"")">@year 年</div>
+                }
+            </div>
+
+        </div>
+        <div class="month-selector-wrapper hr-scroller">
+            <div id="month-selector" class="hr-scroller-inner">
+                @for (var i = 1; i <= 12; i++)
+                {
+                    var m = i;
+                    <div tabindex="-1" data-monthvalue="@i" @onclick="@((MouseEventArgs	 __e) => OnDateChange(__e, null, m))" class="@(Month==i?"active":"")">@i 月</div>
+                }
+            </div>
+
+        </div>
+
+    </div>
+
+    <LunarWeb.Components.Calendar @ref="CalendarInstance"></LunarWeb.Components.Calendar>
+
+</div>
+
+@code{
+    private LunarWeb.Components.Calendar CalendarInstance { get; set; }
+    protected int[] Years { get; set; } = new int[200];
+
+    public int Year { get; set; }
+    public int Month { get; set; }
+
+    protected override void OnInitialized()
+    {
+
+        var year = DateTime.Now.AddYears(-100).Year;
+        for (var i = 0; i < 200; i++)
+        {
+            Years[i] = year + i;
+        }
+
+        Year = DateTime.Now.Year;
+        Month = DateTime.Now.Month;
+
+    }
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        base.OnAfterRender(firstRender);
+
+        await CalendarInstance.FetchInfo(Year, Month);
+
+
+        await JS.InvokeAsync<string>("visibelCalendarSelection");
+    }
+
+    private async void OnDateChange(MouseEventArgs e, int? year, int? month)
+    {
+        if (year > 0)
+        {
+            this.Year = year.Value;
+        }
+        if (month > 0)
+        {
+            this.Month = month.Value;
+        }
+        if (this.Year == 0 || this.Month == 0)
+        {
+            return;
+        }
+        await CalendarInstance.FetchInfo(Year, Month);
+
+
+    }
+
+    //protected override async Task OnInitializedAsync()
+    //{
+    //    refChildCalendar.
+    //}
+
+}

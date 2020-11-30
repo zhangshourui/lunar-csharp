@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="Current">
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
@@ -11,6 +11,11 @@
     <AssemblyName>test</AssemblyName>
     <WarningLevel>4</WarningLevel>
     <ProjectTypeGuids>{3AC096D0-A1C2-E12C-1390-A8335801FDAB};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <OldToolsVersion>2.0</OldToolsVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -50,6 +55,10 @@
     <Content Include="AuthoringTests.txt" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\LunarCore\LunarCore.csproj">
+      <Project>{699499b0-61bc-4ed4-8389-76757cb8c241}</Project>
+      <Name>LunarCore</Name>
+    </ProjectReference>
     <ProjectReference Include="..\lunar\lunar.csproj">
       <Project>{A12C33AE-E9FD-4899-9F62-E1E7DCDA36CA}</Project>
       <Name>lunar</Name>

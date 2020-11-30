@@ -1,0 +1,85 @@
+﻿@using LunarWeb.Data
+@using LunarWeb.Components
+@inject CalendarService CalendarService
+
+
+<div>
+
+    <div class="lunar" id="lunar">
+        <h5 class="lunar-caption">@Caption</h5>
+        <div class="header cal-row">
+            <div class="cell">日</div>
+            <div class="cell">一</div>
+            <div class="cell">二</div>
+            <div class="cell">三</div>
+            <div class="cell">四</div>
+            <div class="cell">五</div>
+            <div class="cell">六</div>
+        </div>
+        <div class="cal-row body">
+            @foreach (var d in CalendarInfo.PrependDays)
+            {
+                @*<div class="cell">@d.SolarDay</div>*@
+                <CalendarCell Date="d" Cls="prepend"></CalendarCell>
+
+            }
+            @foreach (var d in CalendarInfo.MainDays)
+            {
+                <CalendarCell Date="d" Cls="main-cell"></CalendarCell>
+            }
+            @foreach (var d in CalendarInfo.AppendDays)
+            {
+                <CalendarCell Date="d" Cls="append"></CalendarCell>
+            }
+
+        </div>
+    </div>
+    <div id="cell-template" class="hide cell">
+        <div class="cell-day">
+            <div class="solar-day"></div>
+            <div class="lunar-day"></div>
+        </div>
+        <div class="cell-info">
+            <div class="holiday-info"></div>
+            <div class="jieqi-info"></div>
+        </div>
+
+    </div>
+</div>
+
+@code {
+
+    public CalendarInfo CalendarInfo { get; set; }
+
+    [Parameter]
+    public string Caption { get; set; }
+
+    public async Task FetchInfo(int year, int month)
+    {
+        // Todo: Add the todo
+        var date = new DateTime(year, month, 1);
+
+        CalendarInfo = await CalendarService.GetMonthJson(date);
+
+        Caption = $"{year} 年 {month}月";
+
+        StateHasChanged();
+
+
+    }
+
+    protected override async Task OnInitializedAsync()
+    {
+        CalendarInfo = new CalendarInfo
+        {
+            AppendDays = new List<CalendarDate>(),
+            MainDays = new List<CalendarDate>(),
+            PrependDays = new List<CalendarDate>()
+        };
+
+        await Task.FromResult(CalendarInfo);
+        //var now = DateTime.Now;
+        //await FetchInfo(now.Year, now.Month);
+    }
+
+}

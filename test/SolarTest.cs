@@ -4,13 +4,13 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 using System.Text;
 using System.Collections.Generic;
-using com.nlf.calendar;
-using com.nlf.calendar.util;
+using Lunar;
+using Lunar.util;
 namespace test
 {
     /// <summary>
-    ///这是 com.nlf.calendar.Solar 的测试类，旨在
-    ///包含所有 com.nlf.calendar.Solar 单元测试
+    ///这是 Lunar.Solar 的测试类，旨在
+    ///包含所有 Lunar.Solar 单元测试
     ///</summary>
     [TestClass()]
     public class SolarTest
@@ -76,24 +76,24 @@ namespace test
         public void testNext()
         {
             Solar date = new Solar(2020, 1, 23);
-            Assert.AreEqual("2020-01-24", date.next(1).ToString(), "com.nlf.calendar.Solar.next 有错。");
+            Assert.AreEqual("2020-01-24", date.next(1).ToString(), "Lunar.Solar.next 有错。");
             // 仅工作日，跨越春节假期
-            Assert.AreEqual("2020-02-03", date.next(1, true).ToString(), "com.nlf.calendar.Solar.next 有错。");
+            Assert.AreEqual("2020-02-03", date.next(1, true).ToString(), "Lunar.Solar.next 有错。");
 
             date = new Solar(2020, 2, 3);
-            Assert.AreEqual("2020-01-31", date.next(-3).ToString(), "com.nlf.calendar.Solar.next 有错。");
+            Assert.AreEqual("2020-01-31", date.next(-3).ToString(), "Lunar.Solar.next 有错。");
             // 仅工作日，跨越春节假期
-            Assert.AreEqual("2020-01-21", date.next(-3, true).ToString(), "com.nlf.calendar.Solar.next 有错。");
+            Assert.AreEqual("2020-01-21", date.next(-3, true).ToString(), "Lunar.Solar.next 有错。");
 
             date = new Solar(2020, 2, 9);
-            Assert.AreEqual("2020-02-15", date.next(6).ToString(), "com.nlf.calendar.Solar.next 有错。");
+            Assert.AreEqual("2020-02-15", date.next(6).ToString(), "Lunar.Solar.next 有错。");
             // 仅工作日，跨越周末
-            Assert.AreEqual("2020-02-17", date.next(6, true).ToString(), "com.nlf.calendar.Solar.next 有错。");
+            Assert.AreEqual("2020-02-17", date.next(6, true).ToString(), "Lunar.Solar.next 有错。");
 
             date = new Solar(2020, 1, 17);
-            Assert.AreEqual("2020-01-18", date.next(1).ToString(), "com.nlf.calendar.Solar.next 有错。");
+            Assert.AreEqual("2020-01-18", date.next(1).ToString(), "Lunar.Solar.next 有错。");
             // 仅工作日，周日调休按上班算
-            Assert.AreEqual("2020-01-19", date.next(1, true).ToString(), "com.nlf.calendar.Solar.next 有错。");
+            Assert.AreEqual("2020-01-19", date.next(1, true).ToString(), "Lunar.Solar.next 有错。");
 
         }
 

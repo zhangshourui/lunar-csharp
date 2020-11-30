@@ -2,7 +2,7 @@ using System;
 using System.Text;
 using System.Collections.Generic;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using com.nlf.calendar.util;
+using Lunar.util;
 
 namespace test
 {
@@ -55,21 +55,21 @@ namespace test
             int expected = 29;
             int actual;
 
-            actual = com.nlf.calendar.util.SolarUtil.getDaysOfMonth(year, month);
+            actual = Lunar.util.SolarUtil.getDaysOfMonth(year, month);
 
-            Assert.AreEqual(expected, actual, "com.nlf.calendar.util.SolarUtil.getDaysOfMonth 未返回所需的值。");
+            Assert.AreEqual(expected, actual, "Lunar.util.SolarUtil.getDaysOfMonth 未返回所需的值。");
 
             year = 2019;
             month = 2;
             expected = 28;
-            actual = com.nlf.calendar.util.SolarUtil.getDaysOfMonth(year, month);
-            Assert.AreEqual(expected, actual, "com.nlf.calendar.util.SolarUtil.getDaysOfMonth 未返回所需的值。");
+            actual = Lunar.util.SolarUtil.getDaysOfMonth(year, month);
+            Assert.AreEqual(expected, actual, "Lunar.util.SolarUtil.getDaysOfMonth 未返回所需的值。");
 
             year = 2020;
             month = 1;
             expected = 31;
-            actual = com.nlf.calendar.util.SolarUtil.getDaysOfMonth(year, month);
-            Assert.AreEqual(expected, actual, "com.nlf.calendar.util.SolarUtil.getDaysOfMonth 未返回所需的值。");
+            actual = Lunar.util.SolarUtil.getDaysOfMonth(year, month);
+            Assert.AreEqual(expected, actual, "Lunar.util.SolarUtil.getDaysOfMonth 未返回所需的值。");
         }
 
         /// <summary>
@@ -87,24 +87,24 @@ namespace test
             int expected = 6;
             int actual;
 
-            actual = com.nlf.calendar.util.SolarUtil.getWeeksOfMonth(year, month, start);
+            actual = Lunar.util.SolarUtil.getWeeksOfMonth(year, month, start);
 
-            Assert.AreEqual(expected, actual, "com.nlf.calendar.util.SolarUtil.getWeeksOfMonth 未返回所需的值。");
+            Assert.AreEqual(expected, actual, "Lunar.util.SolarUtil.getWeeksOfMonth 未返回所需的值。");
 
 
             year = 2020;
             month = 4;
             start = 0;
             expected = 5;
-            actual = com.nlf.calendar.util.SolarUtil.getWeeksOfMonth(year, month, start);
-            Assert.AreEqual(expected, actual, "com.nlf.calendar.util.SolarUtil.getWeeksOfMonth 未返回所需的值。");
+            actual = Lunar.util.SolarUtil.getWeeksOfMonth(year, month, start);
+            Assert.AreEqual(expected, actual, "Lunar.util.SolarUtil.getWeeksOfMonth 未返回所需的值。");
 
             year = 2019;
             month = 6;
             start = 1;
             expected = 5;
-            actual = com.nlf.calendar.util.SolarUtil.getWeeksOfMonth(year, month, start);
-            Assert.AreEqual(expected, actual, "com.nlf.calendar.util.SolarUtil.getWeeksOfMonth 未返回所需的值。");
+            actual = Lunar.util.SolarUtil.getWeeksOfMonth(year, month, start);
+            Assert.AreEqual(expected, actual, "Lunar.util.SolarUtil.getWeeksOfMonth 未返回所需的值。");
         }
 
         /// <summary>
@@ -118,15 +118,15 @@ namespace test
             bool expected = true;
             bool actual;
 
-            actual = com.nlf.calendar.util.SolarUtil.isLeapYear(year);
+            actual = Lunar.util.SolarUtil.isLeapYear(year);
 
-            Assert.AreEqual(expected, actual, "com.nlf.calendar.util.SolarUtil.isLeapYear 未返回所需的值。");
+            Assert.AreEqual(expected, actual, "Lunar.util.SolarUtil.isLeapYear 未返回所需的值。");
 
 
             year = 2019;
             expected = false;
-            actual = com.nlf.calendar.util.SolarUtil.isLeapYear(year);
-            Assert.AreEqual(expected, actual, "com.nlf.calendar.util.SolarUtil.isLeapYear 未返回所需的值。");
+            actual = Lunar.util.SolarUtil.isLeapYear(year);
+            Assert.AreEqual(expected, actual, "Lunar.util.SolarUtil.isLeapYear 未返回所需的值。");
         }
     }
 }

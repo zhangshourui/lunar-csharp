@@ -1,0 +1,25 @@
+﻿@using LunarWeb.Data
+
+
+<div class="cell @Cls">
+    <div class="cell-day">
+        <div class="solar-day">@Date.SolarDay</div>
+        <div class="lunar-day" title="@($"{Date.LunarMonth}月{Date.LunarDay}")">@Date.LunarDay</div>
+    </div>
+    <div class="cell-info">
+        <div class="holiday-info">@Date.Holiday</div>
+        <div class="jieqi-info">@Date.SolarTerm</div>
+    </div>
+
+</div>
+
+
+@code {
+
+    [Parameter]
+    public CalendarDate Date { get; set; }
+
+    [Parameter]
+    public string Cls { get; set; }
+
+}

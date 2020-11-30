@@ -2,9 +2,9 @@ using System;
 using System.Text;
 using System.Collections.Generic;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using com.nlf.calendar.util;
-using com.nlf.calendar;
-using com.nlf.calendar.eightchar;
+using Lunar.util;
+using Lunar;
+using Lunar.eightchar;
 
 namespace test
 {

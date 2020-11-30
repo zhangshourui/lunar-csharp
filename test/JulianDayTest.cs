@@ -2,8 +2,8 @@ using System;
 using System.Text;
 using System.Collections.Generic;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using com.nlf.calendar.util;
-using com.nlf.calendar;
+using Lunar.util;
+using Lunar;
 
 namespace test
 {
@@ -54,7 +54,7 @@ namespace test
 
             actual = Solar.fromYmd(2020, 7, 15).getJulianDay();
 
-            Assert.AreEqual(expected, actual, "com.nlf.calendar.Solar.getJulianDay 未返回所需的值。");
+            Assert.AreEqual(expected, actual, "Lunar.Solar.getJulianDay 未返回所需的值。");
         }
 
         /// <summary>
@@ -68,7 +68,7 @@ namespace test
 
             actual = Solar.fromJulianDay(2459045.5).toYmdHms();
 
-            Assert.AreEqual(expected, actual, "com.nlf.calendar.Solar.fromJulianDay 未返回所需的值。");
+            Assert.AreEqual(expected, actual, "Lunar.Solar.fromJulianDay 未返回所需的值。");
         }
     }
 }

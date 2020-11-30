@@ -49,7 +49,7 @@ internal class BaseAccessor {
 [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.TestTools.UnitTestGeneration", "1.0.0.0")]
 internal class com_nlf_calendar_SolarAccessor : BaseAccessor {
     
-    protected static Microsoft.VisualStudio.TestTools.UnitTesting.PrivateType m_privateType = new Microsoft.VisualStudio.TestTools.UnitTesting.PrivateType("lunar", "com.nlf.calendar.Solar");
+    protected static Microsoft.VisualStudio.TestTools.UnitTesting.PrivateType m_privateType = new Microsoft.VisualStudio.TestTools.UnitTesting.PrivateType("lunar", "Lunar.Solar");
     
     internal com_nlf_calendar_SolarAccessor(object target) : 
             base(target, m_privateType) {
@@ -117,7 +117,7 @@ internal class com_nlf_calendar_SolarAccessor : BaseAccessor {
     
     internal static object CreatePrivate() {
         object[] args = new object[0];
-        Microsoft.VisualStudio.TestTools.UnitTesting.PrivateObject priv_obj = new Microsoft.VisualStudio.TestTools.UnitTesting.PrivateObject("lunar", "com.nlf.calendar.Solar", new System.Type[0], args);
+        Microsoft.VisualStudio.TestTools.UnitTesting.PrivateObject priv_obj = new Microsoft.VisualStudio.TestTools.UnitTesting.PrivateObject("lunar", "Lunar.Solar", new System.Type[0], args);
         return priv_obj.Target;
     }
     
@@ -126,7 +126,7 @@ internal class com_nlf_calendar_SolarAccessor : BaseAccessor {
                 year,
                 month,
                 day};
-        Microsoft.VisualStudio.TestTools.UnitTesting.PrivateObject priv_obj = new Microsoft.VisualStudio.TestTools.UnitTesting.PrivateObject("lunar", "com.nlf.calendar.Solar", new System.Type[] {
+        Microsoft.VisualStudio.TestTools.UnitTesting.PrivateObject priv_obj = new Microsoft.VisualStudio.TestTools.UnitTesting.PrivateObject("lunar", "Lunar.Solar", new System.Type[] {
                     typeof(int),
                     typeof(int),
                     typeof(int)}, args);
@@ -140,7 +140,7 @@ internal class com_nlf_calendar_SolarAccessor : BaseAccessor {
                 day,
                 hour,
                 minute};
-        Microsoft.VisualStudio.TestTools.UnitTesting.PrivateObject priv_obj = new Microsoft.VisualStudio.TestTools.UnitTesting.PrivateObject("lunar", "com.nlf.calendar.Solar", new System.Type[] {
+        Microsoft.VisualStudio.TestTools.UnitTesting.PrivateObject priv_obj = new Microsoft.VisualStudio.TestTools.UnitTesting.PrivateObject("lunar", "Lunar.Solar", new System.Type[] {
                     typeof(int),
                     typeof(int),
                     typeof(int),
@@ -152,7 +152,7 @@ internal class com_nlf_calendar_SolarAccessor : BaseAccessor {
     internal static object CreatePrivate(global::System.DateTime date) {
         object[] args = new object[] {
                 date};
-        Microsoft.VisualStudio.TestTools.UnitTesting.PrivateObject priv_obj = new Microsoft.VisualStudio.TestTools.UnitTesting.PrivateObject("lunar", "com.nlf.calendar.Solar", new System.Type[] {
+        Microsoft.VisualStudio.TestTools.UnitTesting.PrivateObject priv_obj = new Microsoft.VisualStudio.TestTools.UnitTesting.PrivateObject("lunar", "Lunar.Solar", new System.Type[] {
                     typeof(global::System.DateTime)}, args);
         return priv_obj.Target;
     }
@@ -315,9 +315,9 @@ internal class com_nlf_calendar_SolarAccessor : BaseAccessor {
 [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.TestTools.UnitTestGeneration", "1.0.0.0")]
 internal class com_nlf_calendar_util_HolidayUtilAccessor : BaseAccessor {
     
-    protected static Microsoft.VisualStudio.TestTools.UnitTesting.PrivateType m_privateType = new Microsoft.VisualStudio.TestTools.UnitTesting.PrivateType(typeof(global::com.nlf.calendar.util.HolidayUtil));
+    protected static Microsoft.VisualStudio.TestTools.UnitTesting.PrivateType m_privateType = new Microsoft.VisualStudio.TestTools.UnitTesting.PrivateType(typeof(global::Lunar.util.HolidayUtil));
     
-    internal com_nlf_calendar_util_HolidayUtilAccessor(global::com.nlf.calendar.util.HolidayUtil target) : 
+    internal com_nlf_calendar_util_HolidayUtilAccessor(global::Lunar.util.HolidayUtil target) : 
             base(target, m_privateType) {
     }
     
@@ -361,10 +361,10 @@ internal class com_nlf_calendar_util_HolidayUtilAccessor : BaseAccessor {
         }
     }
     
-    internal static global::com.nlf.calendar.util.HolidayUtil CreatePrivate() {
+    internal static global::Lunar.util.HolidayUtil CreatePrivate() {
         object[] args = new object[0];
-        Microsoft.VisualStudio.TestTools.UnitTesting.PrivateObject priv_obj = new Microsoft.VisualStudio.TestTools.UnitTesting.PrivateObject(typeof(global::com.nlf.calendar.util.HolidayUtil), new System.Type[0], args);
-        return ((global::com.nlf.calendar.util.HolidayUtil)(priv_obj.Target));
+        Microsoft.VisualStudio.TestTools.UnitTesting.PrivateObject priv_obj = new Microsoft.VisualStudio.TestTools.UnitTesting.PrivateObject(typeof(global::Lunar.util.HolidayUtil), new System.Type[0], args);
+        return ((global::Lunar.util.HolidayUtil)(priv_obj.Target));
     }
     
     internal static string padding(int n) {
@@ -375,18 +375,18 @@ internal class com_nlf_calendar_util_HolidayUtilAccessor : BaseAccessor {
         return ret;
     }
     
-    internal static global::com.nlf.calendar.Holiday buildHolidayForward(string s) {
+    internal static global::Lunar.Holiday buildHolidayForward(string s) {
         object[] args = new object[] {
                 s};
-        global::com.nlf.calendar.Holiday ret = ((global::com.nlf.calendar.Holiday)(m_privateType.InvokeStatic("buildHolidayForward", new System.Type[] {
+        global::Lunar.Holiday ret = ((global::Lunar.Holiday)(m_privateType.InvokeStatic("buildHolidayForward", new System.Type[] {
                     typeof(string)}, args)));
         return ret;
     }
     
-    internal static global::com.nlf.calendar.Holiday buildHolidayBackward(string s) {
+    internal static global::Lunar.Holiday buildHolidayBackward(string s) {
         object[] args = new object[] {
                 s};
-        global::com.nlf.calendar.Holiday ret = ((global::com.nlf.calendar.Holiday)(m_privateType.InvokeStatic("buildHolidayBackward", new System.Type[] {
+        global::Lunar.Holiday ret = ((global::Lunar.Holiday)(m_privateType.InvokeStatic("buildHolidayBackward", new System.Type[] {
                     typeof(string)}, args)));
         return ret;
     }
@@ -407,18 +407,18 @@ internal class com_nlf_calendar_util_HolidayUtilAccessor : BaseAccessor {
         return ret;
     }
     
-    internal static System.Collections.Generic.List<com.nlf.calendar.Holiday> findHolidaysForward(string key) {
+    internal static System.Collections.Generic.List<Lunar.Holiday> findHolidaysForward(string key) {
         object[] args = new object[] {
                 key};
-        System.Collections.Generic.List<com.nlf.calendar.Holiday> ret = ((System.Collections.Generic.List<com.nlf.calendar.Holiday>)(m_privateType.InvokeStatic("findHolidaysForward", new System.Type[] {
+        System.Collections.Generic.List<Lunar.Holiday> ret = ((System.Collections.Generic.List<Lunar.Holiday>)(m_privateType.InvokeStatic("findHolidaysForward", new System.Type[] {
                     typeof(string)}, args)));
         return ret;
     }
     
-    internal static System.Collections.Generic.List<com.nlf.calendar.Holiday> findHolidaysBackward(string key) {
+    internal static System.Collections.Generic.List<Lunar.Holiday> findHolidaysBackward(string key) {
         object[] args = new object[] {
                 key};
-        System.Collections.Generic.List<com.nlf.calendar.Holiday> ret = ((System.Collections.Generic.List<com.nlf.calendar.Holiday>)(m_privateType.InvokeStatic("findHolidaysBackward", new System.Type[] {
+        System.Collections.Generic.List<Lunar.Holiday> ret = ((System.Collections.Generic.List<Lunar.Holiday>)(m_privateType.InvokeStatic("findHolidaysBackward", new System.Type[] {
                     typeof(string)}, args)));
         return ret;
     }

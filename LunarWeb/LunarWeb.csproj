@@ -1,0 +1,38 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Content Remove="compilerconfig.json" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="compilerconfig.json" />
+    <None Include="wwwroot\css\bootstrap\dist\css\bootstrap-grid.css.map" />
+    <None Include="wwwroot\css\bootstrap\dist\css\bootstrap-grid.min.css.map" />
+    <None Include="wwwroot\css\bootstrap\dist\css\bootstrap-reboot.css.map" />
+    <None Include="wwwroot\css\bootstrap\dist\css\bootstrap-reboot.min.css.map" />
+    <None Include="wwwroot\css\bootstrap\dist\css\bootstrap.css.map" />
+    <None Include="wwwroot\css\bootstrap\dist\css\bootstrap.min.css.map" />
+    <None Include="wwwroot\css\bootstrap\dist\js\bootstrap.bundle.js" />
+    <None Include="wwwroot\css\bootstrap\dist\js\bootstrap.bundle.js.map" />
+    <None Include="wwwroot\css\bootstrap\dist\js\bootstrap.bundle.min.js" />
+    <None Include="wwwroot\css\bootstrap\dist\js\bootstrap.bundle.min.js.map" />
+    <None Include="wwwroot\css\bootstrap\dist\js\bootstrap.js" />
+    <None Include="wwwroot\css\bootstrap\dist\js\bootstrap.js.map" />
+    <None Include="wwwroot\css\bootstrap\dist\js\bootstrap.min.js" />
+    <None Include="wwwroot\css\bootstrap\dist\js\bootstrap.min.js.map" />
+    <None Include="wwwroot\css\bootstrap\LICENSE" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="bootstrap" Version="4.5.3" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\LunarCore\LunarCore.csproj" />
+  </ItemGroup>
+
+</Project>

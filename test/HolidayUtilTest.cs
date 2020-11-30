@@ -4,13 +4,13 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 using System.Text;
 using System.Collections.Generic;
-using com.nlf.calendar;
-using com.nlf.calendar.util;
+using Lunar;
+using Lunar.util;
 namespace test
 {
     /// <summary>
-    ///这是 com.nlf.calendar.util.HolidayUtil 的测试类，旨在
-    ///包含所有 com.nlf.calendar.util.HolidayUtil 单元测试
+    ///这是 Lunar.util.HolidayUtil 的测试类，旨在
+    ///包含所有 Lunar.util.HolidayUtil 单元测试
     ///</summary>
     [TestClass()]
     public class HolidayUtilTest
@@ -84,9 +84,9 @@ namespace test
             string expected = "2020-05-01 劳动节 2020-05-01";
             string actual = null;
 
-            actual = com.nlf.calendar.util.HolidayUtil.getHoliday(year, month, day).ToString();
+            actual = Lunar.util.HolidayUtil.getHoliday(year, month, day).ToString();
 
-            Assert.AreEqual(expected, actual, "com.nlf.calendar.util.HolidayUtil.getHoliday 未返回所需的值。");
+            Assert.AreEqual(expected, actual, "Lunar.util.HolidayUtil.getHoliday 未返回所需的值。");
         }
 
         /// <summary>
@@ -100,9 +100,9 @@ namespace test
             string expected = "2011-05-02 劳动节 2011-05-01";
             string actual;
 
-            actual = com.nlf.calendar.util.HolidayUtil.getHoliday(ymd).ToString();
+            actual = Lunar.util.HolidayUtil.getHoliday(ymd).ToString();
 
-            Assert.AreEqual(expected, actual, "com.nlf.calendar.util.HolidayUtil.getHoliday 未返回所需的值。");
+            Assert.AreEqual(expected, actual, "Lunar.util.HolidayUtil.getHoliday 未返回所需的值。");
         }
 
         /// <summary>
@@ -116,9 +116,9 @@ namespace test
             int expected = 35;
             int actual;
 
-            actual = com.nlf.calendar.util.HolidayUtil.getHolidays(year).Count;
+            actual = Lunar.util.HolidayUtil.getHolidays(year).Count;
 
-            Assert.AreEqual(expected, actual, "com.nlf.calendar.util.HolidayUtil.getHolidays 未返回所需的值。");
+            Assert.AreEqual(expected, actual, "Lunar.util.HolidayUtil.getHolidays 未返回所需的值。");
         }
 
         /// <summary>
@@ -134,9 +134,9 @@ namespace test
             int expected = 1;
             int actual;
 
-            actual = com.nlf.calendar.util.HolidayUtil.getHolidays(year, month).Count;
+            actual = Lunar.util.HolidayUtil.getHolidays(year, month).Count;
 
-            Assert.AreEqual(expected, actual, "com.nlf.calendar.util.HolidayUtil.getHolidays 未返回所需的值。");
+            Assert.AreEqual(expected, actual, "Lunar.util.HolidayUtil.getHolidays 未返回所需的值。");
         }
 
         /// <summary>
@@ -150,9 +150,9 @@ namespace test
             int expected = 35;
             int actual;
 
-            actual = com.nlf.calendar.util.HolidayUtil.getHolidays(ymd).Count;
+            actual = Lunar.util.HolidayUtil.getHolidays(ymd).Count;
 
-            Assert.AreEqual(expected, actual, "com.nlf.calendar.util.HolidayUtil.getHolidays 未返回所需的值。");
+            Assert.AreEqual(expected, actual, "Lunar.util.HolidayUtil.getHolidays 未返回所需的值。");
         }
 
         /// <summary>
@@ -170,9 +170,9 @@ namespace test
             int expected = 4;
             int actual;
 
-            actual = com.nlf.calendar.util.HolidayUtil.getHolidaysByTarget(year, month, day).Count;
+            actual = Lunar.util.HolidayUtil.getHolidaysByTarget(year, month, day).Count;
 
-            Assert.AreEqual(expected, actual, "com.nlf.calendar.util.HolidayUtil.getHolidaysByTarget 未返回所需的值。");
+            Assert.AreEqual(expected, actual, "Lunar.util.HolidayUtil.getHolidaysByTarget 未返回所需的值。");
         }
 
         /// <summary>
@@ -186,9 +186,9 @@ namespace test
             int expected = 4;
             int actual;
 
-            actual = com.nlf.calendar.util.HolidayUtil.getHolidaysByTarget(ymd).Count;
+            actual = Lunar.util.HolidayUtil.getHolidaysByTarget(ymd).Count;
 
-            Assert.AreEqual(expected, actual, "com.nlf.calendar.util.HolidayUtil.getHolidaysByTarget 未返回所需的值。");
+            Assert.AreEqual(expected, actual, "Lunar.util.HolidayUtil.getHolidaysByTarget 未返回所需的值。");
         }
 
         /// <summary>
@@ -197,20 +197,20 @@ namespace test
         [TestMethod()]
         public void testFix()
         {
-            Assert.AreEqual("2020-01-01 元旦节 2020-01-01", HolidayUtil.getHoliday("2020-01-01") + "", "com.nlf.calendar.util.HolidayUtil.fix 有错。");
+            Assert.AreEqual("2020-01-01 元旦节 2020-01-01", HolidayUtil.getHoliday("2020-01-01") + "", "Lunar.util.HolidayUtil.fix 有错。");
 
             // 将2020-01-01修改为春节
             HolidayUtil.fix("202001011120200101");
-            Assert.AreEqual("2020-01-01 春节 2020-01-01", HolidayUtil.getHoliday("2020-01-01") + "", "com.nlf.calendar.util.HolidayUtil.fix 有错。");
+            Assert.AreEqual("2020-01-01 春节 2020-01-01", HolidayUtil.getHoliday("2020-01-01") + "", "Lunar.util.HolidayUtil.fix 有错。");
 
             // 追加2099-01-01为元旦节
             HolidayUtil.fix("209901010120990101");
-            Assert.AreEqual("2099-01-01 元旦节 2099-01-01", HolidayUtil.getHoliday("2099-01-01") + "", "com.nlf.calendar.util.HolidayUtil.fix 有错。");
+            Assert.AreEqual("2099-01-01 元旦节 2099-01-01", HolidayUtil.getHoliday("2099-01-01") + "", "Lunar.util.HolidayUtil.fix 有错。");
 
             // 将2020-01-01修改为春节，并追加2099-01-01为元旦节
             HolidayUtil.fix("202001011120200101209901010120990101");
-            Assert.AreEqual("2020-01-01 春节 2020-01-01", HolidayUtil.getHoliday("2020-01-01") + "", "com.nlf.calendar.util.HolidayUtil.fix 有错。");
-            Assert.AreEqual("2099-01-01 元旦节 2099-01-01", HolidayUtil.getHoliday("2099-01-01") + "", "com.nlf.calendar.util.HolidayUtil.fix 有错。");
+            Assert.AreEqual("2020-01-01 春节 2020-01-01", HolidayUtil.getHoliday("2020-01-01") + "", "Lunar.util.HolidayUtil.fix 有错。");
+            Assert.AreEqual("2099-01-01 元旦节 2099-01-01", HolidayUtil.getHoliday("2099-01-01") + "", "Lunar.util.HolidayUtil.fix 有错。");
 
             // 更改节假日名称
             string[] names = HolidayUtil.NAMES;
@@ -218,8 +218,8 @@ namespace test
             names[1] = "大年初一";
 
             HolidayUtil.fix(names, null);
-            Assert.AreEqual("2020-01-01 大年初一 2020-01-01", HolidayUtil.getHoliday("2020-01-01") + "", "com.nlf.calendar.util.HolidayUtil.fix 有错。");
-            Assert.AreEqual("2099-01-01 元旦 2099-01-01", HolidayUtil.getHoliday("2099-01-01") + "", "com.nlf.calendar.util.HolidayUtil.fix 有错。");
+            Assert.AreEqual("2020-01-01 大年初一 2020-01-01", HolidayUtil.getHoliday("2020-01-01") + "", "Lunar.util.HolidayUtil.fix 有错。");
+            Assert.AreEqual("2099-01-01 元旦 2099-01-01", HolidayUtil.getHoliday("2099-01-01") + "", "Lunar.util.HolidayUtil.fix 有错。");
 
             // 追加节假日名称和数据
             names = new string[12];
@@ -232,9 +232,9 @@ namespace test
             names[11] = "她的生日";
 
             HolidayUtil.fix(names, "20210529912021052920211111:12021111120211201;120211201");
-            Assert.AreEqual("2021-05-29 我的生日 2021-05-29", HolidayUtil.getHoliday("2021-05-29") + "", "com.nlf.calendar.util.HolidayUtil.fix 有错。");
-            Assert.AreEqual("2021-11-11 结婚纪念日 2021-11-11", HolidayUtil.getHoliday("2021-11-11") + "", "com.nlf.calendar.util.HolidayUtil.fix 有错。");
-            Assert.AreEqual("2021-12-01 她的生日 2021-12-01", HolidayUtil.getHoliday("2021-12-01") + "", "com.nlf.calendar.util.HolidayUtil.fix 有错。");
+            Assert.AreEqual("2021-05-29 我的生日 2021-05-29", HolidayUtil.getHoliday("2021-05-29") + "", "Lunar.util.HolidayUtil.fix 有错。");
+            Assert.AreEqual("2021-11-11 结婚纪念日 2021-11-11", HolidayUtil.getHoliday("2021-11-11") + "", "Lunar.util.HolidayUtil.fix 有错。");
+            Assert.AreEqual("2021-12-01 她的生日 2021-12-01", HolidayUtil.getHoliday("2021-12-01") + "", "Lunar.util.HolidayUtil.fix 有错。");
 
         }
 
