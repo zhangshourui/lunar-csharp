@@ -1,6 +1,6 @@
 using LunarCore.util;
 
-namespace LunarCore.eightchar
+namespace LunarCore.Eightchar
 {
     /// <summary>
     /// 流月

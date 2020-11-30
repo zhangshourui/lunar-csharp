@@ -1,7 +1,7 @@
 using LunarCore.util;
 using System;
 
-namespace LunarCore.eightchar
+namespace LunarCore.Eightchar
 {
     /// <summary>
     /// 运

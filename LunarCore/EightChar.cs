@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 using LunarCore.util;
-using LunarCore.eightchar;
+using LunarCore.Eightchar;
 
 namespace LunarCore
 {
